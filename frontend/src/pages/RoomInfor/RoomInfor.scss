@@ -1,3 +1,56 @@
 .maincontainer-roominfor{
     color: aqua;
 }
+
+.FirstNavbar{
+    background-color: antiquewhite;
+}
+
+.navbar{
+    float: left;
+    width: 180px;
+    height: auto;
+    // padding-left: 50px;
+    // padding-top: 10px;
+    font-size: 15px;
+}
+
+// .menu-icon {
+//     width: 180px;
+//     height: auto;
+//     // padding-left: 30px;
+//     // padding-top: 20px;
+//     font-size: 30px;
+//     padding-bottom: 20px;
+// }
+
+nav form {
+    float:  right;
+    padding-right: 90px;
+    //height: auto;
+    font-weight: bold;
+}
+
+nav form input{
+    padding-right: 50px;
+}
+
+#i4 {
+    padding-left: 50px;
+    color: green;
+}
+
+#w3-container h1{
+    padding-top: 30px;
+}
+// nav form input{
+//      //padding-right: 20px;
+//      //font-size: 30px;
+//      //display: block;
+//      text-align: le;
+// }
+
+.w3-panel{
+    padding-top: 100px;
+    text-align:left;
+}

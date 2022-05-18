@@ -11,6 +11,9 @@
     "dev": "concurrently \"yarn run server\" \"yarn run client\" "
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
@@ -18,7 +21,9 @@
     "express": "^4.17.3",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.10"
+    "mongoose": "^6.2.10",
+    "react-router-dom": "^6.3.0",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "concurrently": "^7.1.0",
