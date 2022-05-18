@@ -26,6 +26,7 @@ app.use(cors(corsOptions))
 // route
 app.use("/api/users", require('./routes/userRoutes'))
 app.use("/api/rooms", require('./routes/roomRoutes'))
+app.use("/pages/roomcategory", require('./routes/categoryRoomRoutes'))
 
 
 // Serve frontend
