@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "517",
+      "type": "Vip",
+      "cost": "3,000,000",
+      "note": "view bien"
+    },
+    {
+      "id": 2,
+      "name": "307",
+      "type": "Normal",
+      "cost": "250,222",
+      "note": ""
+    },
+    {
+      "id": 3,
+      "name": "205",
+      "type": "partment",
+      "cost": "189,433",
+      "note": "tien ich"
+    },
+    {
+      "id": 5,
+      "name": "24",
+      "type": "penhouse",
+      "cost": "123,123",
+      "note": ""
+    }
+  ]
