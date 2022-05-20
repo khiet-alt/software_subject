@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
-import Login from './pages/Login';
+import Login from './pages/UserPage/Login';
 import MainHome from './pages/Home/MainHome'
-import Register from './pages/Register';
+import Navbar from './pages/Navigation/Navbar';
+import Register from './pages/UserPage/Register';
 import Header from './components/Header';
 import './App.css'
 
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <div className='container'>
           <Header />
+          <Navbar />
           <Routes>
             <Route path='/' element={<MainHome />} />
             <Route path='/login' element={<Login />} />

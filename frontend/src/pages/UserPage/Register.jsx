@@ -1,14 +1,15 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { FaSignInAlt } from "react-icons/fa";
 
+import { useState, useEffect } from "react";
+import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { login, reset } from "../features/auth/authSlice";
-import Spinner from "../components/Spinner";
+import { register, reset } from "../../features/auth/authSlice";
 
-function Login() {
+import Spinner from "../../components/Spinner";
+
+function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,7 +17,7 @@ function Login() {
     password2: "",
   });
 
-  const { email, password } = formData;
+  const { name, email, password, password2 } = formData;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -47,12 +48,17 @@ function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const userData = {
-      email,
-      password,
-    };
+    if (password !== password2) {
+      toast.error("Password don't match");
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      };
 
-    dispatch(login(userData));
+      dispatch(register(userData));
+    }
   };
 
   if (isLoading) {
@@ -63,13 +69,25 @@ function Login() {
     <>
       <section className="heading">
         <h1>
-          <FaSignInAlt /> Login
+          <FaUser /> Register
         </h1>
-        <p>Please Login </p>
+        <p>Please create an account</p>
       </section>
 
       <section className="form">
         <form onSubmit={onSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              value={name}
+              placeholder="Enter your name"
+              onChange={onChange}
+            />
+          </div>
+
           <div className="form-group">
             <input
               type="text"
@@ -95,6 +113,17 @@ function Login() {
           </div>
 
           <div className="form-group">
+            <input
+              type="password"
+              className="form-control"
+              id="password2"
+              name="password2"
+              value={password2}
+              placeholder="Confirm your password"
+              onChange={onChange}
+            />
+          </div>
+          <div className="form-group">
             <button type="submid" className="btn btn-block">
               Submit
             </button>
@@ -105,4 +134,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

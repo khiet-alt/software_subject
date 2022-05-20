@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './RoomInfor.scss';
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function RoomInfor() {
   const { click, setClick } = useState(false);
