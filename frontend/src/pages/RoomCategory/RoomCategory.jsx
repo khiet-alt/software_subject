@@ -1,7 +1,7 @@
 import React from 'react'
 import {nanoid} from 'nanoid'
 import { useState, useEffect, Fragment } from 'react'
-import './RoomCategory.css'
+import './RoomCategory.scss'
 import ReadCategoryRoom from "../../components/ReadCaterogyRoom"
 import EditCategoryRoom from "../../components/EditCategoryRoom"
 // chuẩn bị trước cho đọc từ database lên
