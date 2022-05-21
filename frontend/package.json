@@ -24,7 +24,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "webpack": "webpack",
+    "dev": "webpack serve --config ./webpack.config.js",
+    "startwebpack": "webpack-dev-server --open"
   },
   "eslintConfig": {
     "extends": [
@@ -45,9 +48,18 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/preset-env": "^7.18.0",
+    "@babel/preset-react": "^7.17.12",
     "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.14",
     "sass": "^1.51.0",
-    "tailwindcss": "^3.0.24"
+    "sass-loader": "^13.0.0",
+    "tailwindcss": "^3.0.24",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   }
 }

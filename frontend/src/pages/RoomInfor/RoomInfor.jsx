@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RoomInfor.scss';
+import './RoomInfor.css';
 import { Link } from 'react-router-dom';
 
 function RoomInfor() {
