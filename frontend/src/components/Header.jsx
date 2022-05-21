@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../features/auth/authSlice";
 
+import './Header.scss'
+
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,12 +18,12 @@ function Header() {
   }
 
   return (
-    <header className="header">
+    <header className="header-container">
       <div className="logo">
         <Link to="/">Booking</Link>
       </div>
 
-      <ul>
+      <ul className='display-container'>
         {user ? (
           <li>
             <button className="btn" onClick={onLogout}>
