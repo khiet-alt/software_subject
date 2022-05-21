@@ -30,8 +30,15 @@ module.exports = {
                     path.resolve(__dirname, 'src'),
                     path.resolve(__dirname, 'src', 'pages')
                 ],
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true,
+                        },
+                    },
+                ]
             }, {
                 test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
                 exclude: /node_modules/,
@@ -57,7 +64,7 @@ module.exports = {
             }
         },
         static: {
-            directory: path.join(__dirname, 'public')
+            directory: path.resolve(__dirname, './dist')
         }
     }
 }
