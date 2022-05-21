@@ -7,8 +7,18 @@ Cho cả frontend và backend: https://www.youtube.com/watch?v=-0exw-9YJBo&list=
 # Enviroment
 Chạy trên Nodejs, sử dụng cơ sở dữ liệu Mongodb, sử dụng Reactjs
 
-# Run on local
-Run yarn run dev in root folder (folder contains /backend and /frontend) 
+# How to Run on local machine
+Run yarn run dev in root folder (folder contains /backend and /frontend)
+
+# How to deploy
+
+# Current Status
+- Cấu hình cơ bản cho backend, mở server, viết một vài API xử lí thông tin người dùng, verify người dùng,... <br />
+- Về Frontend, cài đặt bộ khung chung cho Reactjs project, add plugins, dependencies,... Code được một vài giao diện cho người dùng 
+
+# Future Status
+- Hoàn thiện việc code giao diện cho người dùng, gửi request đến server xử lí thông tin <br />
+- Deploy project lên heroku
 
 # Link demo
 
