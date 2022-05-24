@@ -116,15 +116,16 @@ function RoomCategory() {
   };
 
   return (
-    <div className="app-container">
+    <div className="category-container">
       <form onSubmit={handleEditFormSubmit}>
-        <table>
+        <table class="table-latitude">
+          <caption>Danh Mục Phòng</caption>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>type</th>
-              <th>Phone Number</th>
-              <th>note</th>
+              <th>Phòng</th>
+              <th>Loại Phòng</th>
+              <th>Đơn giá</th>
+              <th>Ghi chú</th>
               <th>Actions</th>
             </tr>
           </thead>

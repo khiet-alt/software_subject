@@ -1,51 +1,69 @@
-.appcontainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 1rem;
-  }
+  $background: #3f7795;
+  $lfs-blue: #006ac6;
+  $lfs-yellow: #fab700;
+  $lfs-grey: #75787b;
   
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ffffff;
-    text-align: center;
-    padding: 8px;
-    font-size: 32px;
-  }
-  
-  th {
-    background-color: rgb(117, 201, 250);
-  }
-  
-  td {
-    background-color: rgb(205, 235, 253);
-  }
-  
-  form {
-    display: flex;
-    gap: 5px;
-  }
-  
-  form td:last-child {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  form * {
-    font-size: 28px;    
+.category-container {
+    .table-latitude {
+      width: 100%;
+      caption {
+          text-transform: uppercase;
+          font-weight: bold;
+          color: $lfs-yellow;
+          text-align: center;
+          border: 1px solid #3974a3;
+      }
+      thead {
+          border-top: 2px solid $lfs-yellow;
+          border-bottom: 2px solid $lfs-yellow;
+          th {
+              text-transform: uppercase;
+              text-align: center;
+              padding: 10px;
+              color: $lfs-blue;
+              border: 1px solid #3974a3;
+          }
+      }
+      tbody {
+          tr {
+              border-bottom: 1px solid #F1F1F1;
+              color: $lfs-grey;
+              td {
+                  padding: 5px;
+                  border: 1px solid #1f4a5b;
+              }
+              th {
+                padding-left: 10px;
+                border: 1px solid #F1F1F1;
+            }
+          }
+      }
   }
 
-  input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  form {
+        input[type=text] {
+            width: 100%;
+            padding: 10px 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #3974a3;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
   }
+}
+
+button {
+    display: inline-block; 
+    border: .094em solid #14091f; 
+    padding: 10px 10px;
+    border: .094em solid #743EA5;
+    color: $lfs-grey ;
+    cursor:pointer;
+    font: bold 1.8rem sans-serif;
+ }
+button:hover {
+    background-color: #43e35b;
+ }
+
+
