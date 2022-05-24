@@ -1,56 +1,59 @@
-.maincontainer-roominfor{
-    color: aqua;
-}
-
-.FirstNavbar{
+.FirstNavbar {
     background-color: antiquewhite;
+    .navbar{
+        float: left;
+        width: 180px;
+        height: auto;
+        padding-left: 50px;
+        padding-top: 10px;
+        font-size: 15px;
+        .navbar-logo{
+            font-size: 20px;
+        }
+        .menu-icon{
+            width: 180px;
+            height: auto;
+            padding-left: 30px;
+            padding-top: 20px;
+            font-size: 30px;
+            padding-bottom: 20px;
+        }
+    }
+    div{
+        form{
+            float:  right;
+            padding-right: 90px;
+            height: auto;
+            font-weight: bold;
+            padding-top: 10px;
+            h2{
+                font-size: 20px;
+            }
+            input{
+                padding-right: 20px;
+                font-size: 30px;
+                display: block;
+                text-align: left;
+                padding-top: 10;
+            }
+        }
+    }
 }
 
-.navbar{
-    float: left;
-    width: 180px;
-    height: auto;
+#i4{
     padding-left: 50px;
-    padding-top: 10px;
-    font-size: 15px;
-}
-
-.menu-icon {
-    width: 180px;
-    height: auto;
-    padding-left: 30px;
-    padding-top: 20px;
-    font-size: 30px;
-    padding-bottom: 20px;
-}
-
-nav form {
-    float:  right;
-    padding-right: 90px;
-    height: auto;
-    font-weight: bold;
-}
-
-nav form input{
-    padding-right: 50px;
-}
-
-#i4 {
-    padding-left: 50px;
+    padding-top: 12px;
     color: green;
+    text-align: center;
+    font-size: 30px; 
 }
 
-#w3-container h1{
-    padding-top: 30px;
-}
-nav form input{
-     padding-right: 20px;
-     font-size: 30px;
-     display: block;
-     text-align: left;
-}
-
-.w3-panel{
-    padding-top: 100px;
-    text-align:left;
+.w3-container{
+    h1{
+        font-size: 30px;
+    }
+    .w3-panel{
+        padding-top: 100px;
+        text-align:left;
+    }
 }
