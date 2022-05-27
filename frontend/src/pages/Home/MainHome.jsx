@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* This example requires Tailwind CSS v2.0+ */
 export default function Example() {
   return (
@@ -82,12 +84,12 @@ export default function Example() {
                 </div>
               </div>
 
-              <a
-                href="#"
+              <Link
+                to="pages/roominfor"
                 className="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700"
               >
                 Get started
-              </a>
+              </Link>
             </div>
           </div>
         </div>
