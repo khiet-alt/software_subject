@@ -1,3 +1,81 @@
-.maincontainer-guestrentroom{
-    color: aqua;
+$background: #3f7795;
+$lfs-blue: #006ac6;
+$lfs-yellow: #fab700;
+$lfs-grey: #75787b;
+
+.maincontainer-guestrentroom {
+  .table-latitude {
+    width: 100%;
+    caption {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $lfs-yellow;
+        text-align: center;
+        border: 1px solid #3974a3;
+    }
+    thead {
+        border-top: 2px solid $lfs-yellow;
+        border-bottom: 2px solid $lfs-yellow;
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px;
+            color: $lfs-blue;
+            border: 1px solid #3974a3;
+        }
+    }
+    tbody {
+        tr {
+            border-bottom: 1px solid #F1F1F1;
+            color: $lfs-grey;
+            td {
+                padding: 5px;
+                border: 1px solid #1f4a5b;
+            }
+            th {
+              padding-left: 10px;
+              border: 1px solid #F1F1F1;
+          }
+        }
+    }
 }
+
+form {
+      input[type=number] {
+          width: 100%;
+          padding: 10px 10px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #1367ab;
+          border-radius: 4px;
+          box-sizing: border-box;
+      }
+      input[type=string] {
+        width: 100%;
+        padding: 10px 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #1367ab;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+}
+
+button {
+  display: inline-block;
+	padding: 10px 10px;
+	border: none;
+	color: $lfs-grey;
+  background-color: #97c9f5;
+  margin-left: 30px;
+  margin-top: 5px;
+	cursor: pointer;
+	font: bold 13px sans-serif;
+	&:hover {
+		background-color: #a5e5e7;
+	}
+}
+
+}
+
+

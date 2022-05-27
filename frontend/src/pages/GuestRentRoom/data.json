@@ -1,0 +1,30 @@
+[
+    {
+        "no": 1,
+        "customer": "Lam",
+        "type": "Vip",
+        "idp": "123",
+        "addr": "Ktx khu B - C2"
+    },
+    {
+        "no": 2,
+        "customer": "Huy",
+        "type": "Vip",
+        "idp": "124",
+        "addr": "KTX khu B - xx"
+    },
+    {
+        "no": 3,
+        "customer": "Kiet",
+        "type": "Vip",
+        "idp": "125",
+        "addr": "Ngoai tro"
+    },
+    {
+        "no": 4,
+        "customer": "Khiet",
+        "type": "Vip",
+        "idp": "126",
+        "addr": "KTX khu B - xx"
+    }
+  ]
