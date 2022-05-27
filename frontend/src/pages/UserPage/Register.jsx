@@ -1,13 +1,15 @@
 import React from "react";
 
 import { useState, useEffect } from "react";
-import { FaUser } from "react-icons/fa";
+//import { FaUser } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 
 import Spinner from "../../components/Spinner";
+
+import './Register.scss'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -67,68 +69,70 @@ function Register() {
 
   return (
     <>
-      <section className="heading">
-        <h1>
-          <FaUser /> Register
-        </h1>
-        <p>Please create an account</p>
-      </section>
-
       <section className="form">
-        <form onSubmit={onSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              name="name"
-              value={name}
-              placeholder="Enter your name"
-              onChange={onChange}
-            />
-          </div>
+        <h2>Create a new account</h2>
 
-          <div className="form-group">
-            <input
-              type="text"
-              className="form-control"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
+        <div class="row clearfix">
+          <form onSubmit={onSubmit}>
 
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={onChange}
-            />
-          </div>
+            <div class="input_field" ><span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                name="name"
+                value={name}
+                placeholder="Enter your name"
+                required
+                onChange={onChange}
+              />
+            </div>
 
-          <div className="form-group">
-            <input
-              type="password"
-              className="form-control"
-              id="password2"
-              name="password2"
-              value={password2}
-              placeholder="Confirm your password"
-              onChange={onChange}
-            />
-          </div>
-          <div className="form-group">
-            <button type="submid" className="btn btn-block">
-              Submit
-            </button>
-          </div>
-        </form>
+            <div class="input_field" >
+              <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                required
+                onChange={onChange}
+              />
+            </div>
+
+            <div class="input_field" >
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name="password"
+                value={password}
+                placeholder="Enter your password"
+                required
+                onChange={onChange}
+              />
+            </div>
+
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                className="form-control"
+                id="password2"
+                name="password2"
+                value={password2}
+                placeholder="Confirm your password"
+                required
+                onChange={onChange}
+              />
+            </div>
+
+            <button class="button" type="submit">Register</button>
+          </form>
+        </div>
       </section>
     </>
   );
