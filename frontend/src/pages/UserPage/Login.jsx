@@ -6,6 +6,7 @@ import { FaSignInAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { login, reset } from "../../features/auth/authSlice";
 import Spinner from "../../components/Spinner";
 
@@ -28,7 +29,18 @@ function Login() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(message);
+      toast.error(message, {
+        position: "top-center"
+      });
+      // toast("🦄 Wow so easy!", {
+      //   position: "bottom-left",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
     }
 
     if (isSuccess || user) {
