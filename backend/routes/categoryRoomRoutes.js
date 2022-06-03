@@ -9,7 +9,7 @@ const {
 
 const { protect } = require('../middleware/authMiddleware')
 
-router.route('/').get(protect, createCategoryRoom).post(protect, getAllCategoryRoom)
+router.route('/').get(protect, getAllCategoryRoom).post(protect, createCategoryRoom)
 router.route('/:id').delete(protect, deleteCategoryRoom)
 
 module.exports = router

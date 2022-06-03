@@ -1,13 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
-const navigation = [
+var navigation = [
   { name: "Màn hình chính", href: "/", current: true },
-  { name: "Danh mục phòng", href: "pages/roomcategory", current: false },
-  { name: "Tra cứu phòng", href: "pages/roominfor", current: false },
+  { name: "Danh mục phòng", href: "/pages/roomcategory", current: false },
+  { name: "Tra cứu phòng", href: "/pages/roominfor", current: false },
   { name: "Lập phiếu thuê phòng", href: "/pages/guestrentroom", current: false},
   { name: "Hóa đơn thanh toán", href: "/pages/billform", current: false },
   { name: "Báo cáo tháng", href: "/pages/reportform", current: false },
@@ -18,6 +18,23 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+
+  const toDict = {navigation}
+
+  const [path, setPath] = useState(toDict);
+
+  const navigateClick = (event) => {
+    navigation.map(element => {
+      if (element.href === event.target.name){
+        element.current = true
+      } else {
+        element.current = false
+      }
+    })
+
+    setPath({navigation})
+  }
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -54,6 +71,7 @@ export default function Example() {
                       <Link
                         to={item.href}
                         key={item.name}
+                        name={item.href}
                         style={{ textDecoration: "none" }}
                         className={classNames(
                           item.current
@@ -62,6 +80,7 @@ export default function Example() {
                           "px-3 py-2 rounded-md text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
+                        onClick={navigateClick}
                       >
                         {item.name}
                       </Link>

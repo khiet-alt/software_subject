@@ -1,6 +1,29 @@
-import React, { useState } from 'react';
-import './RoomInfor.scss';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./RoomInfor.scss";
+import { Link } from "react-router-dom";
+import Select from "react-select";
+
+import ShowRoom from './ShowRooms'
+
+const optionsRoomType = [
+  { value: "150,000", label: "A" },
+  { value: "170,000", label: "B" },
+  { value: "200,000", label: "C" },
+];
+
+const customStyles = {
+  option: (base, state) => ({
+    ...base,
+    color: "#1e2022",
+    backgroundColor: state.isSelected ? "rgba(189,197,209,.3)" : "white",
+  }),
+  singleValue: (provided, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = "opacity 300ms";
+
+    return { ...provided, opacity, transition };
+  },
+};
 
 function RoomInfor() {
   const { click, setClick } = useState(false);
@@ -8,36 +31,7 @@ function RoomInfor() {
   const handleClick = () => setClick(!click);
   return (
     <>
-      <nav className='FirstNavbar'>
-        <div className="navbar">
-          <div className="navbar-container">
-            <Link to='/' className='navbar-logo'>
-              ROOM LIST <i class="fab fa-affiliatetheme"></i>
-            </Link>
-          </div>
-          <div className="menu-icon" onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-        </div>
-        {/* <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div> */}
-        <div>
-          <form>
-            <h2>Choose type room</h2>
-            <div id='i1'>
-              <input name="loaiphong" type="radio" />Room type A
-            </div>
-            <div id='i2'>
-              <input name="loaiphong" type="radio" />Room type B
-            </div>
-            <div id='i3'>
-              <input name="loaiphong" type="radio" />Room type C
-            </div>
-          </form>
-        </div>
-      </nav>
-      <div id='i4'>
+      <div id="i4">
         Booking date <input type="date" name="" value="LoveHTML" />
       </div>
       <div class="w3-container">
@@ -46,14 +40,32 @@ function RoomInfor() {
           <h2>Name room : I31</h2>
           <p>Floor : 3</p>
           <label>Room price : </label>
-          <input class="w3-input w3-border" type="text" placeholder="300.000 VND" />
+          <input
+            class="w3-input w3-border"
+            type="text"
+            placeholder="300.000 VND"
+          />
+          <label>Room type : </label>
+          <Select
+            options={optionsRoomType}
+            isClearable={true}
+            styles={customStyles}
+          />
           <label>Status : </label>
-          <input class="w3-input w3-border" type="text" placeholder="empty room" />
-          <button type="button" class="w3-button w3-red w3-margin-top">Booking</button>
+          <input
+            class="w3-input w3-border"
+            type="text"
+            placeholder="empty room"
+          />
+          <button type="button" class="w3-button w3-red w3-margin-top">
+            Booking
+          </button>
         </div>
       </div>
+
+      <ShowRoom />
     </>
-  )
+  );
 }
 
-export default RoomInfor                      
+export default RoomInfor;
