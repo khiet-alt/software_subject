@@ -4,6 +4,11 @@
   $lfs-grey: #75787b;
   
 .category-container {
+
+    h2 {
+        margin-top: 20px;
+    }
+
     .table-latitude {
       width: 100%;
       caption {
@@ -12,6 +17,7 @@
           color: $lfs-yellow;
           text-align: center;
           border: 1px solid #3974a3;
+          margin-top: 30px;
       }
       thead {
           border-top: 2px solid $lfs-yellow;
@@ -31,6 +37,7 @@
               td {
                   padding: 5px;
                   border: 1px solid #1f4a5b;
+                  text-align: center;
               }
               th {
                 padding-left: 10px;

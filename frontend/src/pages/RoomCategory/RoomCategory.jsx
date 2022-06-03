@@ -1,15 +1,20 @@
-import React from 'react'
-import {nanoid} from 'nanoid'
-import { useState, useEffect, Fragment } from 'react'
-import './RoomCategory.scss'
-import ReadCategoryRoom from "../../components/ReadCaterogyRoom"
-import EditCategoryRoom from "../../components/EditCategoryRoom"
+import React from "react";
+import { nanoid } from "nanoid";
+import { useState, useEffect, Fragment } from "react";
+import "./RoomCategory.scss";
+import ReadCategoryRoom from "../../components/ReadCaterogyRoom";
+import EditCategoryRoom from "../../components/EditCategoryRoom";
+import Select from "react-select";
 // chuẩn bị trước cho đọc từ database lên
-import data from "./data.json"
+import data from "./data.json";
 
+const optionsRoomType = [
+  { value: "150,000", label: "A" },
+  { value: "170,000", label: "B" },
+  { value: "200,000", label: "C" },
+];
 
 function RoomCategory() {
-
   const [categoryRooms, setcategoryRooms] = useState(data);
   const [addFormData, setAddFormData] = useState({
     name: "",
@@ -30,25 +35,20 @@ function RoomCategory() {
   const handleAddFormChange = (event) => {
     event.preventDefault();
 
-    const fieldName = event.target.getAttribute("name");
-    const fieldValue = event.target.value;
+    setAddFormData(prevState => ({
+      ...prevState,
+      [event.target.getAttribute("name")]: event.target.value
+    }))
 
-    const newFormData = { ...addFormData };
-    newFormData[fieldName] = fieldValue;
-
-    setAddFormData(newFormData);
   };
 
   const handleEditFormChange = (event) => {
     event.preventDefault();
 
-    const fieldName = event.target.getAttribute("name");
-    const fieldValue = event.target.value;
-
-    const newFormData = { ...editFormData };
-    newFormData[fieldName] = fieldValue;
-
-    setEditFormData(newFormData);
+    setEditFormData((prevState) => ({
+      ...prevState,
+      [event.target.getAttribute("name")]: event.target.value,
+    }));
   };
 
   const handleAddFormSubmit = (event) => {
@@ -79,7 +79,9 @@ function RoomCategory() {
 
     const newcategoryRooms = [...categoryRooms];
 
-    const index = categoryRooms.findIndex((contact) => contact.id === editContacId);
+    const index = categoryRooms.findIndex(
+      (contact) => contact.id === editContacId
+    );
 
     newcategoryRooms[index] = editedContact;
 
@@ -108,7 +110,9 @@ function RoomCategory() {
   const handleDeleteClick = (contactId) => {
     const newcategoryRooms = [...categoryRooms];
 
-    const index = categoryRooms.findIndex((contact) => contact.id === contactId);
+    const index = categoryRooms.findIndex(
+      (contact) => contact.id === contactId
+    );
 
     newcategoryRooms.splice(index, 1);
 
@@ -118,13 +122,13 @@ function RoomCategory() {
   return (
     <div className="category-container">
       <form onSubmit={handleEditFormSubmit}>
-        <table class="table-latitude">
+        <table className="table-latitude">
           <caption>Danh Mục Phòng</caption>
           <thead>
             <tr>
               <th>Phòng</th>
-              <th>Loại Phòng</th>
               <th>Đơn giá</th>
+              <th>Loại Phòng</th>
               <th>Ghi chú</th>
               <th>Actions</th>
             </tr>
@@ -151,34 +155,32 @@ function RoomCategory() {
         </table>
       </form>
 
-      <h2>Add a Contact</h2>
+      <h2>Add a Room</h2>
       <form onSubmit={handleAddFormSubmit}>
         <input
           type="text"
           name="name"
           required="required"
-          placeholder="Name..."
+          placeholder="Phòng..."
           onChange={handleAddFormChange}
         />
-        <input
-          type="text"
+        <Select
+          options={optionsRoomType}
           name="type"
-          required="required"
-          placeholder="Type..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="cost"
-          required="required"
-          placeholder="Cost..."
-          onChange={handleAddFormChange}
+          placeholder="Chọn loại phòng..."
+          onChange={event =>
+            setAddFormData(prevState => ({
+              ...prevState,
+              'type': event.label,
+              'cost': event.value
+            }))
+          }
         />
         <input
           type="text"
           name="note"
           required="required"
-          placeholder="Note..."
+          placeholder="Ghi chú..."
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
@@ -187,4 +189,4 @@ function RoomCategory() {
   );
 }
 
-export default RoomCategory
+export default RoomCategory;

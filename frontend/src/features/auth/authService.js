@@ -3,7 +3,7 @@ import axios from 'axios'
 // const API_URL = '/api/users/'
 import { API } from '../data/data'
 
-const API_URL = API.API_USER_LOCAL;
+const API_URL = API.ORIGIN + 'api/users/';
 
 // Register user
 const register = async (userData) => {

@@ -2,29 +2,29 @@
     {
       "id": 1,
       "name": "517",
-      "type": "Vip",
-      "cost": "3,000,000",
+      "type": "A",
+      "cost": "150,000",
       "note": "view bien"
     },
     {
       "id": 2,
       "name": "307",
-      "type": "Normal",
-      "cost": "250,222",
+      "type": "B",
+      "cost": "170,000",
       "note": ""
     },
     {
       "id": 3,
       "name": "205",
-      "type": "partment",
-      "cost": "189,433",
+      "type": "C",
+      "cost": "200,000",
       "note": "tien ich"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "24",
-      "type": "penhouse",
-      "cost": "123,123",
+      "type": "B",
+      "cost": "170,000",
       "note": ""
     }
   ]
