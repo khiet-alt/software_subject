@@ -20,7 +20,7 @@ const createCategoryRoom = asyncHandler(async (req, res) => {
     })
 
     if (categoryroom) {
-        res.status(201).json(room)
+        res.status(201).json(categoryroom)
     } else {
         res.status(400)
         throw new Error('Invalid category room data')
@@ -33,11 +33,17 @@ const createCategoryRoom = asyncHandler(async (req, res) => {
 // @route       Delete api/pages/roomcategory/:id
 // @access      Public
 const deleteCategoryRoom = asyncHandler(async (req, res) => {
-    const {id} = req.body;
-
-    await CategoryRoom.deleteOne({_id: id});
-    res.json({message: 'delete successfully'})
-})
+    const categoryRoom = await CategoryRoom.findById(req.params.id)
+  
+    if (!categoryRoom) {
+      res.status(400)
+      throw new Error('Goal not found')
+    }
+  
+    await categoryRoom.remove()
+  
+    res.status(200).json({ id: req.params.id })
+  })
 
 // @description Get all category room
 // @route       Get api/pages/roomcategory
