@@ -130,7 +130,7 @@ function RoomCategory() {
               <th>Đơn giá</th>
               <th>Loại Phòng</th>
               <th>Ghi chú</th>
-              <th>Actions</th>
+              {/* <th>Actions</th> */}
             </tr>
           </thead>
           <tbody>
@@ -145,8 +145,8 @@ function RoomCategory() {
                 ) : (
                   <ReadCategoryRoom
                     contact={contact}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
+                    // handleEditClick={handleEditClick}
+                    // handleDeleteClick={handleDeleteClick}
                   />
                 )}
               </Fragment>
@@ -155,7 +155,7 @@ function RoomCategory() {
         </table>
       </form>
 
-      <h2>Add a Room</h2>
+      {/* <h2>Add a Room</h2>
       <form onSubmit={handleAddFormSubmit}>
         <input
           type="text"
@@ -184,7 +184,7 @@ function RoomCategory() {
           onChange={handleAddFormChange}
         />
         <button type="submit">Add</button>
-      </form>
+      </form> */}
     </div>
   );
 }

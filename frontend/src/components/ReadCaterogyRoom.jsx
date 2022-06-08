@@ -8,7 +8,7 @@ const ReadCategoryRoom = ({ contact, handleEditClick, handleDeleteClick }) => {
       <td>{contact.cost}</td>
       <td>{contact.type}</td>
       <td>{contact.note}</td>
-      <td>
+      {/* <td>
         <button
           type="button"
           onClick={(event) => handleEditClick(event, contact)}
@@ -18,7 +18,7 @@ const ReadCategoryRoom = ({ contact, handleEditClick, handleDeleteClick }) => {
         <button type="button" onClick={() => handleDeleteClick(contact.id)}>
           Delete
         </button>
-      </td>
+      </td> */}
     </tr>
   );
 };
