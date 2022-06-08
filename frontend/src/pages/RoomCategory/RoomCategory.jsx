@@ -136,7 +136,7 @@ function RoomCategory() {
           <tbody>
             {categoryRooms.map((contact) => (
               <Fragment>
-                {editContacId === contact.id ? (
+                {/* {editContacId === contact.id ? (
                   <EditCategoryRoom
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
@@ -145,10 +145,13 @@ function RoomCategory() {
                 ) : (
                   <ReadCategoryRoom
                     contact={contact}
-                    // handleEditClick={handleEditClick}
-                    // handleDeleteClick={handleDeleteClick}
+                    handleEditClick={handleEditClick}
+                    handleDeleteClick={handleDeleteClick}
                   />
-                )}
+                )} */}
+                  <ReadCategoryRoom
+                    contact={contact}
+                  />
               </Fragment>
             ))}
           </tbody>
