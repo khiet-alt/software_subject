@@ -172,17 +172,17 @@ function BillForm() {
           type="number"
           name="price"
           required="required"
-          placeholder="Đơn giá"
+          placeholder="Đơn giá (VNĐ)"
           onChange={handleAddBillChange}
         />
         <input
           type="number"
           name="finalPrice"
           required="required"
-          placeholder="Thành tiền"
+          placeholder="Thành tiền (VNĐ)"
           onChange={handleAddBillChange}
         />
-        <button type="submit">Thêm</button>
+        <button type="submit" id="add">Thêm</button>
       </form>
     </div>
   )
