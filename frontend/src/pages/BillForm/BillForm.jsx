@@ -12,6 +12,11 @@ function BillForm() {
 
   const [bills, setBills] = useState(data);
 
+  const [roomIDVal, setRoomIDVal] = useState("");
+  const [numberOfDatesVal, setNumberOfDatesVal] = useState("");
+  const [priceVal, setPriceVal] = useState("");
+  const [finalPriceVal, setFinalPriceVal] = useState("");
+
   const [addBillData, setAddBillData] = useState({
     roomID: "",
     numberOfDates: "",
@@ -40,6 +45,46 @@ function BillForm() {
     setAddBillData(newBillData);
   }
 
+  const handleAddRoomID = (e) => {
+    e.preventDefault();
+    const fieldName = e.target.getAttribute("name");
+    const fieldValue = e.target.value;
+    setRoomIDVal(fieldValue);
+    const newBillData = { ...addBillData };
+    newBillData[fieldName] = fieldValue;
+    setAddBillData(newBillData);
+  };
+
+  const handleAddNumberOfDates = (e) => {
+    e.preventDefault();
+    const fieldName = e.target.getAttribute("name");
+    const fieldValue = e.target.value;
+    setNumberOfDatesVal(fieldValue);
+    const newBillData = { ...addBillData };
+    newBillData[fieldName] = fieldValue;
+    setAddBillData(newBillData);
+  };
+
+  const handleAddPrice = (e) => {
+    e.preventDefault();
+    const fieldName = e.target.getAttribute("name");
+    const fieldValue = e.target.value;
+    setPriceVal(fieldValue);
+    const newBillData = { ...addBillData };
+    newBillData[fieldName] = fieldValue;
+    setAddBillData(newBillData);
+  };
+
+  const handleAddFinalPrice = (e) => {
+    e.preventDefault();
+    const fieldName = e.target.getAttribute("name");
+    const fieldValue = e.target.value;
+    setFinalPriceVal(fieldValue);
+    const newBillData = { ...addBillData };
+    newBillData[fieldName] = fieldValue;
+    setAddBillData(newBillData);
+  };
+
   const handleEditBillChange = (e) => {
     e.preventDefault();
 
@@ -55,16 +100,28 @@ function BillForm() {
   const handleAddBillSubmit = (e) => {
     e.preventDefault();
 
-    const newContact = {
-      id: nanoid(),
-      roomID: addBillData.roomID,
-      numberOfDates: addBillData.numberOfDates,
-      price: addBillData.price,
-      finalPrice: addBillData.finalPrice,
+    if (roomIDVal <= 0 || roomIDVal >= 1000){
+      alert("Số phòng: 0 < .. < 1000");
+    }
+    else if (numberOfDatesVal <= 0 || numberOfDatesVal >= 1000){
+      alert("Số ngày thuê: 0 < .. < 3650");
+    }
+    else if (priceVal <= 0 || priceVal >= 1000000000){
+      alert("Đơn giá: 1000 < .. < 1,000,000,000");
+    }
+    else if (finalPriceVal <= 0 || finalPriceVal >= 1000000000){
+      alert("Thành tiền: 0 < .. < 1000");
+    } else {
+      const newContact = {
+        id: nanoid(),
+        roomID: addBillData.roomID,
+        numberOfDates: addBillData.numberOfDates,
+        price: addBillData.price,
+        finalPrice: addBillData.finalPrice,
+      };
+      const newBill = [...bills, newContact];
+      setBills(newBill);
     };
-
-    const newBill = [...bills, newContact];
-    setBills(newBill);
   };
 
   const handleEditBillSubmit = (e) => {
@@ -159,28 +216,32 @@ function BillForm() {
           name="roomID"
           required="required"
           placeholder="Số phòng"
-          onChange={handleAddBillChange}
+          onChange={handleAddRoomID}
+          value={roomIDVal}
         />
         <input
           type="number"
           name="numberOfDates"
           required="required"
           placeholder="Số ngày thuê"
-          onChange={handleAddBillChange}
+          onChange={handleAddNumberOfDates}
+          value={numberOfDatesVal}
         />
         <input
           type="number"
           name="price"
           required="required"
           placeholder="Đơn giá (VNĐ)"
-          onChange={handleAddBillChange}
+          onChange={handleAddPrice}
+          value={priceVal}
         />
         <input
           type="number"
           name="finalPrice"
           required="required"
           placeholder="Thành tiền (VNĐ)"
-          onChange={handleAddBillChange}
+          onChange={handleAddFinalPrice}
+          value={finalPriceVal}
         />
         <button type="submit" id="add">Thêm</button>
       </form>
