@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const CategoryRoom = require('../models/categoryRoom')
+const CategoryRoom = require('../models/CategoryRoom')
 
 // @description create new category room
 // @route       Post api/pages/roomcategory
