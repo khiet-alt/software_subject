@@ -11,6 +11,9 @@ Chạy trên Nodejs, sử dụng cơ sở dữ liệu Mongodb, sử dụng React
 Run yarn run dev in root folder (folder contains /backend and /frontend)
 
 # How to deploy
+- Build frontend zip file <br />
+- Đối với backend, thay đổi file server.js sao cho nếu môi trường là production thì sẽ gửi static file frontend tới user. <br />
+- Tạo Repo trên heroku, link project tới remote repo này, push code into repo
 
 # Current Status
 - Cấu hình cơ bản cho backend, mở server, viết một vài API xử lí thông tin người dùng, verify người dùng,... <br />
@@ -21,7 +24,9 @@ Run yarn run dev in root folder (folder contains /backend and /frontend)
 - Deploy project lên heroku
 
 # Link demo
+https://software-subject.herokuapp.com/
 
+# For my team
 # How to use (incorperate with team)
 
 Clone directly this repository, and type:
