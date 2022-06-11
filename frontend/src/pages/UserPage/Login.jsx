@@ -11,10 +11,8 @@ import Spinner from "../../components/Spinner";
 
 function Login() {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
-    password2: "",
   });
 
   const { email, password } = formData;
@@ -31,15 +29,6 @@ function Login() {
       toast.error(message, {
         position: "top-center"
       });
-      // toast("🦄 Wow so easy!", {
-      //   position: "bottom-left",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
     }
 
     if (isSuccess || user) {
@@ -59,12 +48,18 @@ function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const userData = {
-      email,
-      password,
-    };
+    if (email === '' || password === '') {
+      toast.error("Please fill in all fields", {
+        position: "top-center",
+      });
+    } else {
+      const userData = {
+        email,
+        password,
+      };
 
-    dispatch(login(userData));
+      dispatch(login(userData));
+    }
   };
 
   if (isLoading) {
