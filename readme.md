@@ -8,7 +8,7 @@ Cho cả frontend và backend: https://www.youtube.com/watch?v=-0exw-9YJBo&list=
 Chạy trên Nodejs, sử dụng cơ sở dữ liệu Mongodb, sử dụng Reactjs
 
 # How to Run on local machine
-Run yarn run dev in root folder (folder contains /backend and /frontend)
+Run npm run dev in root folder (folder contains /backend and /frontend)
 
 # How to deploy
 - Build frontend zip file <br />
@@ -31,7 +31,7 @@ https://software-subject.herokuapp.com/
 
 Clone directly this repository, and type:
 
-> **yarn install** in root folder (folder contains /backend and /frontend)
+> **npm install** in root folder (folder contains /backend and /frontend)
 
 to install all dependencies inside backend folder, and type
 > **npm install** in /frontend folder 

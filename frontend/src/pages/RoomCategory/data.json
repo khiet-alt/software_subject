@@ -4,21 +4,21 @@
       "name": "The Five Stars Villa",
       "type": "A",
       "cost": "150,000",
-      "note": "view bien"
+      "note": "view biển"
     },
     {
       "id": 2,
       "name": "Dolce Villas - Furama Villas",
       "type": "B",
       "cost": "170,000",
-      "note": ""
+      "note": "hồ bơi chung"
     },
     {
       "id": 3,
       "name": "Luxury Pool Villa Resort",
       "type": "C",
       "cost": "200,000",
-      "note": "tien ich"
+      "note": "Free lunch"
     },
     {
       "id": 4,

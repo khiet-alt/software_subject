@@ -1,9 +1,17 @@
 import React from "react";
+import Select from "react-select";
+
+const optionsRoomType = [
+  { value: "150,000", label: "A" },
+  { value: "170,000", label: "B" },
+  { value: "200,000", label: "C" },
+];
 
 const EditCategoryRoom = ({
   editFormData,
   handleEditFormChange,
   handleCancelClick,
+  setEditFormData
 }) => {
   return (
     <tr>
@@ -21,21 +29,25 @@ const EditCategoryRoom = ({
         <input
           type="text"
           required="required"
-          placeholder="Type..."
-          name="type"
+          placeholder="Cost..."
+          name="cost"
           value={editFormData.address}
           onChange={handleEditFormChange}
         ></input>
       </td>
       <td>
-        <input
-          type="text"
-          required="required"
-          placeholder="Cost..."
-          name="cost"
-          value={editFormData.phoneNumber}
-          onChange={handleEditFormChange}
-        ></input>
+        <Select
+          options={optionsRoomType}
+          name="type"
+          placeholder="Loại..."
+          onChange={(event) =>
+            setEditFormData((prevState) => ({
+              ...prevState,
+              type: event.label,
+              cost: event.value,
+            }))
+          }
+        />
       </td>
       <td>
         <input

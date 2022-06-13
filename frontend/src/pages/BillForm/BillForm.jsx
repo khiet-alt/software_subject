@@ -212,7 +212,7 @@ function BillForm() {
       <h2>Thêm hóa đơn</h2>
       <form onSubmit={handleAddBillSubmit}>
         <input
-          type="number"
+          type="text"
           name="roomID"
           required="required"
           placeholder="Số phòng"

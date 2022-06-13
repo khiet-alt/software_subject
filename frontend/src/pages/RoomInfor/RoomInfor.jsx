@@ -28,7 +28,6 @@ const customStyles = {
 function RoomInfor() {
   const { click, setClick } = useState(false);
 
-  const handleClick = () => setClick(!click);
   return (
     <>
       <div id="i4">

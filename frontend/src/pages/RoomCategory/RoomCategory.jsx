@@ -5,6 +5,9 @@ import "./RoomCategory.scss";
 import ReadCategoryRoom from "../../components/ReadCaterogyRoom";
 import EditCategoryRoom from "../../components/EditCategoryRoom";
 import Select from "react-select";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllRoom, reset } from "../../features/roomCategory/roomCategorySlice";
+
 // chuẩn bị trước cho đọc từ database lên
 import data from "./data.json";
 
@@ -15,6 +18,26 @@ const optionsRoomType = [
 ];
 
 function RoomCategory() {
+  const dispatch = useDispatch();
+  const { roomCategories, isLoading, isError, message } = useSelector(
+    (state) => state.roomCategories
+  );
+
+  console.log(roomCategories)
+
+  useEffect(() => {
+      if (isError) {
+        console.log(message);
+      }
+
+      dispatch(getAllRoom());
+
+      return () => {
+        dispatch(reset());
+      };
+  }, [isError, message, dispatch]);
+
+  
   const [categoryRooms, setcategoryRooms] = useState(data);
   const [addFormData, setAddFormData] = useState({
     name: "",
@@ -141,6 +164,7 @@ function RoomCategory() {
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
+                    setEditFormData={setEditFormData}
                   />
                 ) : (
                   <ReadCategoryRoom
@@ -168,11 +192,11 @@ function RoomCategory() {
           options={optionsRoomType}
           name="type"
           placeholder="Chọn loại phòng..."
-          onChange={event =>
-            setAddFormData(prevState => ({
+          onChange={(event) =>
+            setAddFormData((prevState) => ({
               ...prevState,
-              'type': event.label,
-              'cost': event.value
+              type: event.label,
+              cost: event.value,
             }))
           }
         />
