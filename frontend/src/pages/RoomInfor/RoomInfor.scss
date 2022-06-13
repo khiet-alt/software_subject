@@ -1,59 +1,76 @@
-.FirstNavbar {
-    background-color: antiquewhite;
-    .navbar{
-        float: left;
-        width: 180px;
-        height: auto;
-        padding-left: 50px;
-        padding-top: 10px;
-        font-size: 15px;
-        .navbar-logo{
-            font-size: 20px;
-        }
-        .menu-icon{
-            width: 180px;
-            height: auto;
-            padding-left: 30px;
-            padding-top: 20px;
-            font-size: 30px;
-            padding-bottom: 20px;
+$background: #3f7795;
+$lfs-blue: #006ac6;
+$lfs-yellow: #fab700;
+$lfs-grey: #75787b;
+
+.category-container {
+
+  h2 {
+      margin-top: 20px;
+  }
+
+  .table-latitude {
+    width: 100%;
+    caption {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $lfs-yellow;
+        text-align: center;
+        border: 1px solid #3974a3;
+        margin-top: 30px;
+    }
+    thead {
+        border-top: 2px solid $lfs-yellow;
+        border-bottom: 2px solid $lfs-yellow;
+        th {
+            text-transform: uppercase;
+            text-align: center;
+            padding: 10px;
+            color: $lfs-blue;
+            border: 1px solid #3974a3;
         }
     }
-    div{
-        form{
-            float:  right;
-            padding-right: 90px;
-            height: auto;
-            font-weight: bold;
-            padding-top: 10px;
-            h2{
-                font-size: 20px;
+    tbody {
+        tr {
+            border-bottom: 1px solid #F1F1F1;
+            color: $lfs-grey;
+            td {
+                padding: 5px;
+                border: 1px solid #1f4a5b;
+                text-align: center;
             }
-            input{
-                padding-right: 20px;
-                font-size: 30px;
-                display: block;
-                text-align: left;
-                padding-top: 10;
-            }
+            th {
+              padding-left: 10px;
+              border: 1px solid #F1F1F1;
+          }
         }
     }
 }
 
-#i4{
-    padding-left: 50px;
-    padding-top: 12px;
-    color: green;
-    text-align: center;
-    font-size: 30px; 
+form {
+      input[type=text] {
+          width: 100%;
+          padding: 10px 10px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #3974a3;
+          border-radius: 4px;
+          box-sizing: border-box;
+      }
+}
 }
 
-.w3-container{
-    h1{
-        font-size: 30px;
-    }
-    .w3-panel{
-        padding-top: 100px;
-        text-align:left;
-    }
+button {
+  display: inline-block; 
+  border: .094em solid #14091f; 
+  padding: 10px 10px;
+  border: .094em solid #743EA5;
+  color: $lfs-grey ;
+  cursor:pointer;
+  font: bold 1.8rem sans-serif;
 }
+button:hover {
+  background-color: #43e35b;
+}
+
+

@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "The Five Stars Villa",
+        "type": "B",
+        "cost": "24.399$/day",
+        "status": "Dang su dung"
+    },
+    {
+        "id": 2,
+        "name": "Dolce Villas - Furama Villas",
+        "type": "B",
+        "cost": "12.400$/day",
+        "status": "Con trong"
+    },
+    {
+        "id": 3,
+        "name": "Luxury Pool Villa Resort",
+        "type": "C",
+        "cost": "89.000$/day",
+        "status": "Dang su dung"
+    },
+    {
+        "id": 4,
+        "name": "Perfect Private Pool Villa",
+        "type": "A",
+        "cost": "3.500$/day",
+        "status": "Con trong"
+    },
+    {
+        "id": 5,
+        "name": "The Five Stars Villa",
+        "type": "B",
+        "cost": "24.399$/day",
+        "status": "Con trong"
+    },
+    {
+        "id": 6,
+        "name": "Dolce Villas - Furama Villas",
+        "type": "B",
+        "cost": "12.400$/day",
+        "status": "Con trong"
+    }
+]

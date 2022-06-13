@@ -5,18 +5,18 @@ const Room = require('../models/Room')
 // @route       Post api/rooms/
 // @access      Public
 const createRoom = asyncHandler(async (req, res) => {
-    const { name, type, cost, note, status } = req.body
+    const { stt, idroom, type, cost, status } = req.body
 
-    if (!name || !type || !cost || !note || !status) {
+    if (!stt || !idroom || !type || !cost|| !status) {
         res.status(400)
         throw new Error('Please add all field')
     }
     // Create room
     const room = await Room.create({
-        name,
+        stt,
+        idroom,
         type,
         cost,
-        note,
         status
     })
 
@@ -24,7 +24,7 @@ const createRoom = asyncHandler(async (req, res) => {
         res.status(201).json(room)
     } else {
         res.status(400)
-        throw new Error('Invalid room data' )
+        throw new Error('Invalid room data')
     }
 
     res.json({ message: 'Create new room' })
