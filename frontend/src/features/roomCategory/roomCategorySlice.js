@@ -12,6 +12,7 @@ const initialState = {
 //Create categoryRoom
 export const createCategoryRoom = createAsyncThunk('roomCategory/create', async (room, thunkAPI) => {
     try {
+        console.log("Data: ", room)
         return await roomCategoryService.createRoom(room)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
@@ -50,7 +51,7 @@ export const categorySlice = createSlice({
             .addCase(createCategoryRoom.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
-                state.message(action.payload)
+                state.message = action.payload
             })
             .addCase(getAllRoom.pending, (state) => {
                 state.isLoading = true

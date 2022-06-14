@@ -14,7 +14,6 @@ const getAllRoom = async () => {
 // CreateRoom
 const createRoom = async (userData) => {
     const response = await axios.post(API_URL, userData)
-
     return response.data
 }
 

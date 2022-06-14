@@ -1,13 +1,14 @@
+import { useDispatch } from 'react-redux'
 
-import React from "react";
+function RoomItem({ room }) {
+  const dispatch = useDispatch()
 
-const ReadCategoryRoom = ({ contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
-      <td>{contact.name}</td>
-      <td>{contact.cost}</td>
-      <td>{contact.type}</td>
-      <td>{contact.note}</td>
+      <td>{room.name}</td>
+      <td>{room.cost}</td>
+      <td>{room.type}</td>
+      <td>{room.note}</td>
       {/* <td>
         <button
           type="button"
@@ -20,7 +21,7 @@ const ReadCategoryRoom = ({ contact, handleEditClick, handleDeleteClick }) => {
         </button>
       </td> */}
     </tr>
-  );
-};
+  )
+}
 
-export default ReadCategoryRoom;
+export default RoomItem

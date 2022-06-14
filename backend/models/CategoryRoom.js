@@ -10,15 +10,13 @@ const categoryRoomSchema = mongoose.Schema({
         required: [true, 'Please add a type'],
     },
     cost: {
-        type: Number,
+        type: String,
         required: [true, 'Please add a cost']
     },
     note: {
         type: String,
         required: [false]
     },
-}, {
-    timestamps: true
 })
 
 
