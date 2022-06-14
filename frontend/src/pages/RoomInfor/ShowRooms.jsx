@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import ConfirmBooking from "./ConfirmBooking";
+
 import data from "./data.json";
 
 const BoxComponent = ({ params }) => {
-
   const [isOpenModal, setShowModal] = React.useState(false);
 
   return (
@@ -17,15 +17,30 @@ const BoxComponent = ({ params }) => {
             className="w-full h-full object-center object-cover"
           />
         </div>
-        <p className="mb-2 font-bold">{params.title}</p>
-        <p className="text-sm leading-5 text-gray-900">{params.content}</p>
+        <p className="mb-2 font-bold">{params.name}</p>
+        <p className="text-sm leading-5 text-gray-900">Giá tiền: {params.cost}</p>
+        <p className="text-sm leading-5 text-gray-900">Loại phòng: {params.type}</p>
+        <p className="text-sm leading-5 text-gray-900">Tình trạng phòng: {params.status}</p>
       </div>
       <ConfirmBooking isOpenModal={isOpenModal} setShowModal={setShowModal} />
     </div>
   );
 };
 
-function ShowRoom() {
+function ShowRoom({ filterOptions }) {
+  const filteredData = data.filter((value) => {
+    if (filterOptions.type === "All") {
+      return (filterOptions.status === value.status) ? true : false
+    } else {
+      if (
+        filterOptions.type === value.type &&
+        filterOptions.status === value.status
+      )
+        return true;
+    }
+    return false;
+  });
+
   return (
     <div className="bg-gray-100">
       <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -66,8 +81,8 @@ function ShowRoom() {
           </svg>
         </div>
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {data.map((item) => (
-            <BoxComponent key={item.title} params={item} />
+          {filteredData.map((item) => (
+            <BoxComponent key={item.id} params={item} />
           ))}
         </div>
       </div>

@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./RoomInfor.scss";
-import { Link } from "react-router-dom";
 import Select from "react-select";
 
-import ShowRoom from './ShowRooms'
+import ShowRoom from "./ShowRooms";
+
 
 const optionsRoomType = [
   { value: "150,000", label: "A" },
   { value: "170,000", label: "B" },
   { value: "200,000", label: "C" },
+  { value: "", label: "All" },
 ];
+
+const statusOptions = [{ label: "Busy" }, { label: "Available" }];
+
+const initialSelection = {
+  type: "All",
+  status: "Available"
+}
 
 const customStyles = {
   option: (base, state) => ({
@@ -26,43 +34,45 @@ const customStyles = {
 };
 
 function RoomInfor() {
-  const { click, setClick } = useState(false);
+  const [filterOptions, setFilterOptions] = useState(initialSelection);
 
   return (
     <>
       <div id="i4">
         Booking date <input type="date" name="" value="LoveHTML" />
       </div>
-      <div class="w3-container">
+      <div className="w3-container">
         <h1>Room Information detail</h1>
-        <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
-          <h2>Name room : I31</h2>
-          <p>Floor : 3</p>
-          <label>Room price : </label>
-          <input
-            class="w3-input w3-border"
-            type="text"
-            placeholder="300.000 VND"
-          />
-          <label>Room type : </label>
+        <div className="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+          <h2>Tìm kiếm phòng phù hợp với bạn</h2>
+          <label>Lọc theo loại phòng</label>
           <Select
             options={optionsRoomType}
             isClearable={true}
             styles={customStyles}
+            onChange={(event) => {
+              setFilterOptions((prevState) => ({
+                ...prevState,
+                type: event.label
+              }))
+            }}
           />
-          <label>Status : </label>
-          <input
-            class="w3-input w3-border"
-            type="text"
-            placeholder="empty room"
+          <label>Tình trạng phòng : </label>
+          <Select
+            options={statusOptions}
+            isClearable={true}
+            styles={customStyles}
+            onChange={(event) => {
+              setFilterOptions((prevState) => ({
+                ...prevState,
+                status: event.label
+              }))
+            }}
           />
-          <button type="button" class="w3-button w3-red w3-margin-top">
-            Booking
-          </button>
         </div>
       </div>
 
-      <ShowRoom />
+      <ShowRoom filterOptions={filterOptions} />
     </>
   );
 }

@@ -22,8 +22,6 @@ const roomSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please add a status']
     }
-}, {
-    timestamps: true
 })
 
 
