@@ -61,7 +61,7 @@ function GuestRentRoomForm() {
         <Select
           options={optionsRoomType}
           name="guestType"
-          placeholder="Chọn loại phòng..."
+          placeholder="Chọn loại khách..."
           onChange={(event) =>
             setAddFormData((prevState) => ({
               ...prevState,
