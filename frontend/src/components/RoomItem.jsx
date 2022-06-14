@@ -1,7 +1,9 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 
 function RoomItem({ room }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <tr>
@@ -9,19 +11,15 @@ function RoomItem({ room }) {
       <td>{room.cost}</td>
       <td>{room.type}</td>
       <td>{room.note}</td>
-      {/* <td>
-        <button
-          type="button"
-          onClick={(event) => handleEditClick(event, contact)}
-        >
-          Edit
-        </button>
-        <button type="button" onClick={() => handleDeleteClick(contact.id)}>
-          Delete
-        </button>
-      </td> */}
+      {user ? (
+        <td>
+          <button type="button">Delete</button>
+        </td>
+      ) : (
+        <></>
+      )}
     </tr>
-  )
+  );
 }
 
-export default RoomItem
+export default RoomItem;

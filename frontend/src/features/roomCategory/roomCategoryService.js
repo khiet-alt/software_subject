@@ -12,10 +12,19 @@ const getAllRoom = async () => {
 }
 
 // CreateRoom
-const createRoom = async (userData) => {
-    const response = await axios.post(API_URL, userData)
+const createRoom = async (userData, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.post(API_URL, userData, config)
     return response.data
 }
+
+// DeleteRoom
+
 
 const roomCategoryService = {
     getAllRoom,

@@ -17,6 +17,8 @@ function RoomCategory() {
     (state) => state.roomCategories
   );
 
+  const { user } = useSelector((state) => state.auth);
+
   console.log(roomCategories)
 
   useEffect(() => {
@@ -24,6 +26,7 @@ function RoomCategory() {
         console.log(message);
       }
 
+      console.log("dispatch getAllRoom()")
       dispatch(getAllRoom());
 
       return () => {
@@ -45,14 +48,13 @@ function RoomCategory() {
               <th>Đơn giá</th>
               <th>Loại Phòng</th>
               <th>Ghi chú</th>
-              <th>Actions</th>
+              { user ? (<th>Actions</th>) : (<></>)}
             </tr>
           </thead>
           
             {roomCategories != null ?(
               roomCategories.map((room) => (
                 <tbody>
-                  {/* <tr>{room.name}</tr> */}
                   <RoomItem key={room._id} room={room}/>
                 </tbody>
               ))
@@ -62,9 +64,11 @@ function RoomCategory() {
           
 
         </table>
-
-      <RoomForm/>
-
+            
+      {user ? (<RoomForm />) : (
+          <p></p>
+        )
+      }
     </div>
   );
 }

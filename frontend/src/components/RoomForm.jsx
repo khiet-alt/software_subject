@@ -7,16 +7,17 @@ const optionsRoomType = [
     { value: "150,000", label: "A" },
     { value: "170,000", label: "B" },
     { value: "200,000", label: "C" },
-  ];
+];
+
+const initialForm = {
+  name: "",
+  type: "",
+  cost: "",
+  note: "",
+};
 
 function RoomForm() {
-  const [text, setText] = useState('')
-  const [addFormData, setAddFormData] = useState({
-    name: "",
-    type: "",
-    cost: "",
-    note: "",
-  });
+  const [addFormData, setAddFormData] = useState(initialForm);
 
   const dispatch = useDispatch()
 
@@ -24,29 +25,10 @@ function RoomForm() {
     e.preventDefault()
 
     dispatch(createCategoryRoom( addFormData ))
-    setAddFormData('')
+    setAddFormData(initialForm)
   }
 
   return (
-    // <section className='form'>
-    //   <form onSubmit={onSubmit}>
-    //     <div className='form-group'>
-    //       <label htmlFor='text'>Goal</label>
-    //       <input
-    //         type='text'
-    //         name='text'
-    //         id='text'
-    //         value={text}
-    //         onChange={(e) => setText(e.target.value)}
-    //       />
-    //     </div>
-    //     <div className='form-group'>
-    //       <button className='btn btn-block' type='submit'>
-    //         Add Goal
-    //       </button>
-    //     </div>
-    //   </form>
-    // </section>
     <>
     <h2>Add a Room</h2>
       <form onSubmit={onSubmit}>

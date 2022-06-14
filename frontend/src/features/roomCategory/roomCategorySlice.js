@@ -12,8 +12,8 @@ const initialState = {
 //Create categoryRoom
 export const createCategoryRoom = createAsyncThunk('roomCategory/create', async (room, thunkAPI) => {
     try {
-        console.log("Data: ", room)
-        return await roomCategoryService.createRoom(room)
+        const token = thunkAPI.getState().auth.user.token
+        return await roomCategoryService.createRoom(room, token)
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
 
