@@ -14,7 +14,7 @@ function RoomItem({ room }) {
       <td>{room.note}</td>
       {user ? (
         <td>
-          <button type="button">Delete</button>
+          <button type="button" onClick={() => dispatch(deleteCategoryRoom(room._id))} className ='close'>Delete</button>
         </td>
       ) : (
         <></>
