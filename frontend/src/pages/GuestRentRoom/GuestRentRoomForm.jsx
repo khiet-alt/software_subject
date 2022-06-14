@@ -74,7 +74,7 @@ function GuestRentRoomForm() {
           type="text"
           name="ID"
           required="required"
-          placeholder="Ghi chú..."
+          placeholder="CMND..."
           onChange={(event) => {
             setAddFormData((prevState) => ({
               ...prevState,
