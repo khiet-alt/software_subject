@@ -51,7 +51,7 @@ function RoomCategory() {
             </tr>
           </thead>
           
-            {roomCategories != null ?(
+            {roomCategories ? (
               roomCategories.map((room) => (
                 <tbody>
                   <RoomItem key={room._id} room={room}/>
