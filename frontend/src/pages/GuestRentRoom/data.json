@@ -2,29 +2,36 @@
     {
         "no": 1,
         "customer": "Lam",
-        "type": "Vip",
+        "type": "Nội địa",
         "idp": "123",
         "addr": "Ktx khu B - C2"
     },
     {
         "no": 2,
         "customer": "Huy",
-        "type": "Vip",
+        "type": "Nước ngoài",
         "idp": "124",
-        "addr": "KTX khu B - xx"
+        "addr": "KTX khu B - C6"
     },
     {
         "no": 3,
         "customer": "Kiet",
-        "type": "Vip",
+        "type": "Nội địa",
         "idp": "125",
-        "addr": "Ngoai tro"
+        "addr": "Di An, Binh Duong"
     },
     {
         "no": 4,
         "customer": "Khiet",
-        "type": "Vip",
+        "type": "Nước ngoài",
         "idp": "126",
-        "addr": "KTX khu B - xx"
+        "addr": "KTX khu B - C6"
+    },
+    {
+        "no": 5,
+        "customer": "Lam",
+        "type": "Nội Đia",
+        "idp": "127",
+        "addr": "KTX khu A - B1"
     }
   ]

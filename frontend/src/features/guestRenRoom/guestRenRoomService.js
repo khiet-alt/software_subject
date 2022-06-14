@@ -2,17 +2,17 @@ import axios from "axios";
 
 import { API } from '../data/data'
 
-const API_URL = API.ORIGIN + 'pages/roomcategory/';
+const API_URL = API.ORIGIN + 'pages/guestrentroom/';
 
 // Register user
-const getAllRoom = async () => {
+const getAllGuestRentRoom = async () => {
     const response = await axios.get(API_URL)
 
     return response.data
 }
 
 // CreateRoom
-const createRoom = async (userData, token) => {
+const createGuestRentRoom = async (userData, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -24,22 +24,22 @@ const createRoom = async (userData, token) => {
 }
 
 // DeleteRoom
-const deleteCategoryRoom = async (categoryRoomId, token) => {
+const deleteGuestRentRoom = async (guestRentRoomId, token) => {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
 
-    const response = await axios.delete(API_URL + categoryRoomId, config)
+    const response = await axios.delete(API_URL + guestRentRoomId, config)
 
     return response.data
 }
 
-const roomCategoryService = {
-    getAllRoom,
-    createRoom,
-    deleteCategoryRoom
+const guestRentRoomService = {
+    getAllGuestRentRoom,
+    createGuestRentRoom,
+    deleteGuestRentRoom
 }
 
-export default roomCategoryService
+export default guestRentRoomService

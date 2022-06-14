@@ -13,6 +13,7 @@ var corsOptions = {
 const { errorHandler } = require('./middleware/errorMiddleware')
 
 const connectDB = require('./config/db')
+const { application } = require('express')
 
 connectDB()
 
@@ -27,6 +28,7 @@ app.use(cors(corsOptions))
 app.use("/api/users", require('./routes/userRoutes'))
 app.use("/api/rooms", require('./routes/roomRoutes'))
 app.use("/pages/roomcategory", require('./routes/categoryRoomRoutes'))
+app.use("/pages/guestrentroom", require('./routes/guestRentRoom'))
 app.use("/pages/billform", require('./routes/billRoutes'))
 
 
