@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, Fragment } from "react";
+import { useEffect } from "react";
 import "./RoomCategory.scss";
 import RoomForm from "../../components/RoomForm"
 import Spinner from "../../components/Spinner"
@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllRoom, reset } from "../../features/roomCategory/roomCategorySlice";
 
 // chuẩn bị trước cho đọc từ database lên
-import data from "./data.json";
 
 
 function RoomCategory() {
@@ -48,7 +47,7 @@ function RoomCategory() {
               <th>Đơn giá</th>
               <th>Loại Phòng</th>
               <th>Ghi chú</th>
-              { user ? (<th>Actions</th>) : (<></>)}
+              { user ? (<th>Chỉnh Sửa</th>) : (<></>)}
             </tr>
           </thead>
           
@@ -61,10 +60,7 @@ function RoomCategory() {
             ):(
               <h3>Not Category Room</h3>
             )}
-          
-
         </table>
-            
       {user ? (<RoomForm />) : (
           <p></p>
         )

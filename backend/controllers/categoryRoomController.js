@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler')
 const CategoryRoom = require('../models/CategoryRoom')
 
 // @description create new category room
-// @route       Post api/pages/roomcategory
+// @route       Post pages/roomcategory
 // @access      Public
 const createCategoryRoom = asyncHandler(async (req, res) => {
     const { name, type, cost, note } = req.body
@@ -19,18 +19,11 @@ const createCategoryRoom = asyncHandler(async (req, res) => {
         note
     })
 
-    if (categoryroom) {
-        res.status(201).json(categoryroom)
-    } else {
-        res.status(400)
-        throw new Error('Invalid category room data')
-    }
-
-    res.json({ message: 'Create new category room.' })
+    res.status(200).json(categoryroom)
 })
 
 // @description Delete category room
-// @route       Delete api/pages/roomcategory/:id
+// @route       Delete pages/roomcategory/:id
 // @access      Public
 const deleteCategoryRoom = asyncHandler(async (req, res) => {
     const categoryRoom = await CategoryRoom.findById(req.params.id)
@@ -46,7 +39,7 @@ const deleteCategoryRoom = asyncHandler(async (req, res) => {
   })
 
 // @description Get all category room
-// @route       Get api/pages/roomcategory
+// @route       Get pages/roomcategory
 // @access      Public
 const getAllCategoryRoom = asyncHandler(async (req, res) => {
     const foundCategoryRooms = await CategoryRoom.find();
