@@ -32,6 +32,19 @@ export const getAllRoom = createAsyncThunk('roomCategory/getRooms', async (_, th
     }
 })
 
+// Delete user goal
+export const deleteCategoryRoom = createAsyncThunk('roomCategory/delete', async (id, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.user.token
+        return await roomCategoryService.deleteCategoryRoom(id, token)
+
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
 export const categorySlice = createSlice({
     name: 'roomCategory',
     initialState,
@@ -62,6 +75,19 @@ export const categorySlice = createSlice({
                 state.roomCategories = action.payload
             })
             .addCase(getAllRoom.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(deleteCategoryRoom.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(deleteCategoryRoom.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.roomCategories = state.roomCategories.filter((room) => room._id !== action.payload.id)
+            })
+            .addCase(deleteCategoryRoom.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload

@@ -24,11 +24,22 @@ const createRoom = async (userData, token) => {
 }
 
 // DeleteRoom
+const deleteCategoryRoom = async (categoryRoomId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
 
+    const response = await axios.delete(API_URL + categoryRoomId, config)
+
+    return response.data
+}
 
 const roomCategoryService = {
     getAllRoom,
-    createRoom
+    createRoom,
+    deleteCategoryRoom
 }
 
 export default roomCategoryService

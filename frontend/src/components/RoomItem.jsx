@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { deleteCategoryRoom } from "../features/roomCategory/roomCategorySlice";
 
 function RoomItem({ room }) {
   const dispatch = useDispatch();
