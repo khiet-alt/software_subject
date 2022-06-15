@@ -1,6 +1,6 @@
 const path = require('path')
 const express = require('express')
-const dotenv = require('dotenv').config()
+require('dotenv').config()
 const colors = require('colors')
 const port = process.env.PORT || 5000
 var cors = require('cors')
@@ -13,7 +13,6 @@ var corsOptions = {
 const { errorHandler } = require('./middleware/errorMiddleware')
 
 const connectDB = require('./config/db')
-const { application } = require('express')
 
 connectDB()
 
